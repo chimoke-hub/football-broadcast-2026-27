@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>欧州5大リーグ＆日本サッカー 放送チャンネル一覧 2026-27</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --card-bg: #ffffff;
+    --text: #1a1d23;
+    --text-muted: #5b6270;
+    --border: #e2e5ea;
+    --accent: #1d6fd6;
+    --accent-soft: #eaf2fd;
+    --header-bg: #12151c;
+    --header-text: #ffffff;
+    --tbd: #b45309;
+    --tbd-bg: #fff7ed;
+    --chip-jp: #0f766e;
+    --chip-jp-bg: #ecfdf5;
+    --chip-eu: #6d28d9;
+    --chip-eu-bg: #f3eefe;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1115;
+      --card-bg: #171a21;
+      --text: #e7e9ee;
+      --text-muted: #9aa1ae;
+      --border: #2a2e37;
+      --accent: #6ea8f5;
+      --accent-soft: #16233a;
+      --header-bg: #0a0c10;
+      --header-text: #f2f4f8;
+      --tbd: #f2b56b;
+      --tbd-bg: #2c2412;
+      --chip-jp: #5fd6c4;
+      --chip-jp-bg: #10302b;
+      --chip-eu: #b79bf0;
+      --chip-eu-bg: #241a38;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1115;
+    --card-bg: #171a21;
+    --text: #e7e9ee;
+    --text-muted: #9aa1ae;
+    --border: #2a2e37;
+    --accent: #6ea8f5;
+    --accent-soft: #16233a;
+    --header-bg: #0a0c10;
+    --header-text: #f2f4f8;
+    --tbd: #f2b56b;
+    --tbd-bg: #2c2412;
+    --chip-jp: #5fd6c4;
+    --chip-jp-bg: #10302b;
+    --chip-eu: #b79bf0;
+    --chip-eu-bg: #241a38;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  header.hero {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 2.5rem 1.5rem 2rem;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  header.hero h1 { font-size: 1.6rem; margin: 0 0 0.5rem; }
+  header.hero p { margin: 0.25rem 0; color: #c7ccd6; font-size: 0.92rem; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; margin-top: 1rem; font-size: 0.85rem; color: #aab1bd; }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+
+  .notice {
+    background: var(--tbd-bg);
+    border: 1px solid color-mix(in srgb, var(--tbd) 40%, transparent);
+    color: var(--tbd);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+  }
+  .notice strong { color: inherit; }
+
+  nav.jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  nav.jump a {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+  nav.jump a:hover { border-color: var(--accent); }
+
+  section.group {
+    margin-bottom: 2.75rem;
+  }
+  section.group h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.9rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .flag { font-size: 1.1em; }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+    margin-bottom: 1.1rem;
+  }
+  .card h3 {
+    margin: 0 0 0.7rem;
+    font-size: 1.02rem;
+  }
+  .comp-chip {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+  .comp-chip.jp { background: var(--chip-jp-bg); color: var(--chip-jp); }
+  .comp-chip.eu { background: var(--chip-eu-bg); color: var(--chip-eu); }
+
+  .broadcast-line {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0.2rem 0 0.9rem;
+  }
+  .broadcast-line b { color: var(--text); font-weight: 600; }
+
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 520px;
+    font-size: 0.86rem;
+  }
+  thead th {
+    text-align: left;
+    background: var(--accent-soft);
+    color: var(--text);
+    padding: 0.55rem 0.7rem;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  tbody td {
+    padding: 0.5rem 0.7rem;
+    border-top: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  tbody td.match { white-space: normal; min-width: 220px; }
+  tbody tr:nth-child(even) { background: color-mix(in srgb, var(--accent-soft) 35%, transparent); }
+  .tbd { color: var(--tbd); font-weight: 600; }
+  .round-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+
+  footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>⚽ 欧州5大リーグ＆日本サッカー 放送チャンネル一覧</h1>
+    <p>2026-27シーズン｜対象大会：プレミアリーグ・ラ・リーガ・ブンデスリーガ・セリエA・リーグ・アン（各国主要カップ戦含む）／UEFAチャンピオンズリーグ・ヨーロッパリーグ・カンファレンスリーグ／J1・J2・J3・天皇杯・ルヴァンカップ</p>
+    <div class="meta-row">
+      <span>📅 掲載期間：2026年8月24日〜2026年9月24日（毎月更新予定）</span>
+      <span>🕒 最終更新：2026年8月24日</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="notice">
+    <strong>放送局・キックオフ時刻について：</strong>
+    日本国内の放送・配信は競技団体・放送局の発表に基づき随時変わります。特にカップ戦・欧州カップ戦は試合ごとの詳細が直前まで確定しないことが多く、本ページでは判明分のみ記載し、未確定は「<span class="tbd">未定</span>」としています。最新情報は各配信サービスの公式サイトでご確認ください。
+  </div>
+
+  <nav class="jump">
+    <a href="#jp">🇯🇵 日本</a>
+    <a href="#eng">🏴 イングランド</a>
+    <a href="#esp">🇪🇸 スペイン</a>
+    <a href="#ger">🇩🇪 ドイツ</a>
+    <a href="#ita">🇮🇹 イタリア</a>
+    <a href="#fra">🇫🇷 フランス</a>
+    <a href="#uefa">🇪🇺 欧州カップ戦</a>
+  </nav>
+
+  <!-- ===================== 日本 ===================== -->
+  <section class="group" id="jp">
+    <h2><span class="flag">🇯🇵</span> 日本</h2>
+
+    <div class="card">
+      <h3>J1リーグ<span class="comp-chip jp">DAZN独占</span></h3>
+      <p class="broadcast-line"><b>DAZN</b>で全試合ライブ配信（独占、2033年まで契約）。毎節、J1・J2・J3から各2試合・計6試合を<b>ABEMA de DAZN</b>で無料生中継。地上波の定期中継なし。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>節</th><th>日程</th><th>主なカード（判明分）</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>第4節</td><td>8月29日(土)</td><td class="match">水戸vs町田 18:00／G大阪vs広島 18:00／清水vs柏 18:30／長崎vsFC東京 18:30／浦和vs横浜FM 19:00／東京Vvs鹿島 19:00／川崎Fvs千葉 19:00／名古屋vs岡山 19:00／京都vs福岡 19:00／神戸vsC大阪 19:00</td><td>DAZN</td></tr>
+            <tr><td>第5節</td><td>9月2日(水)</td><td class="match">水戸vs鹿島 19:00／千葉vs岡山 19:00／東京Vvs神戸 19:00／町田vs川崎F 19:00／横浜FMvs京都 19:00／清水vsFC東京 19:00 ほか</td><td>DAZN</td></tr>
+            <tr><td>第6節以降</td><td>9月上旬〜9月24日ごろ</td><td class="match tbd">対戦カード判明次第更新</td><td>DAZN</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="round-note">2026/27シーズンより秋春制に完全移行（8月開幕・翌年6月閉幕）。ウィンターブレークは2026年12月中旬〜2027年2月中旬。</p>
+    </div>
+
+    <div class="card">
+      <h3>J2・J3リーグ<span class="comp-chip jp">DAZN独占</span></h3>
+      <p class="broadcast-line">J1と同様、<b>DAZN</b>で全試合ライブ配信。8月8日・9日に開幕し、J1と同じ秋春制日程で進行中。個別カードは<a href="https://www.jleague.jp/" target="_blank" rel="noopener">Jリーグ公式サイト</a>参照。</p>
+    </div>
+
+    <div class="card">
+      <h3>天皇杯 JFA 第106回全日本サッカー選手権大会<span class="comp-chip jp">NHK/スカパー!/JFATV</span></h3>
+      <p class="broadcast-line"><b>NHK</b>（共催局・一部試合）、<b>スカパー!</b>（計43試合をライブ配信）、<b>JFATV</b>（一部無料ライブ配信）。DAZNでの配信なし。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>ラウンド</th><th>日程</th><th>備考</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>2回戦</td><td>8月26日(水)</td><td class="match">J1・J2クラブが登場</td><td>NHK／スカパー!／JFATV</td></tr>
+            <tr><td>3回戦</td><td>9月23日(水・祝)</td><td class="match">ACL Elite出場クラブの対戦のみ</td><td>NHK／スカパー!／JFATV</td></tr>
+            <tr><td>3回戦（残り）</td><td>10月7日(水)</td><td class="match">上記以外のカード（対象期間外）</td><td class="tbd">未定</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Jリーグ ヤマザキビスケットルヴァンカップ<span class="comp-chip jp">スカパー!/フジテレビ系</span></h3>
+      <p class="broadcast-line"><b>スカパー!</b>が準決勝まで全試合を生中継。<b>フジテレビ</b>系（FOD／フジテレビONE・NEXT）でも一部放送。決勝の放送は別途発表。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>ラウンド</th><th>日程</th><th>備考</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>1stラウンド</td><td>9月2日(水)開幕</td><td class="match">鹿島・神戸はプライムラウンドからシード</td><td>スカパー!／FOD 他</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="round-note">2回戦は9月29日、準々決勝（プライムラウンド）は11月と対象期間（〜9/24）以降のため次回更新で反映予定。</p>
+    </div>
+  </section>
+
+  <!-- ===================== イングランド ===================== -->
+  <section class="group" id="eng">
+    <h2><span class="flag">🏴</span> イングランド</h2>
+
+    <div class="card">
+      <h3>プレミアリーグ<span class="comp-chip eu">U-NEXT独占</span></h3>
+      <p class="broadcast-line"><b>U-NEXT</b>（サッカーパック）が日本国内独占放映権を7年契約（〜2030-31シーズン）で保有。全380試合をライブ・見逃し配信。<b>DAZN・ABEMAでは配信なし。</b></p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>節</th><th>日程</th><th>主なカード</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>第2節</td><td>8/28(金)〜8/31(月)</td><td class="match">クリスタル・パレスvsマンチェスターC／リバプールvsノッティンガム・フォレスト／トッテナムvsニューカッスル／チェルシーvsブライトン／マンチェスターUvsイプスウィッチ／アストン・ビラvsアーセナル 他</td><td>U-NEXT</td></tr>
+            <tr><td>第3節</td><td>9/4(金)〜9/6(日)</td><td class="match">ニューカッスルvsボーンマス／ブライトンvsリーズ／マンチェスターCvsコベントリー／ノッティンガム・フォレストvsトッテナム／エバートンvsマンチェスターU／アーセナルvsチェルシー 他</td><td>U-NEXT</td></tr>
+            <tr><td>第4節</td><td>9/12(土)〜9/14(日)</td><td class="match">ボーンマスvsブレントフォード／チェルシーvsハル・シティ／リバプールvsフルハム／トッテナムvsエバートン／マンチェスターUvsマンチェスターC／リーズvsニューカッスル 他</td><td>U-NEXT</td></tr>
+            <tr><td>第5節</td><td>9月中旬〜下旬</td><td class="match tbd">対戦カード判明次第更新</td><td>U-NEXT</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>FA杯<span class="comp-chip eu">U-NEXT</span></h3>
+      <p class="broadcast-line"><b>U-NEXT</b>で配信。対象期間（8〜9月）は予選ラウンド中心で、プレミアリーグ勢の登場は1回戦（例年11月）以降。</p>
+    </div>
+
+    <div class="card">
+      <h3>カラバオカップ（EFLカップ）<span class="comp-chip eu">DAZN</span></h3>
+      <p class="broadcast-line"><b>DAZN</b>で配信。8月7日開幕、2027年2月まで開催。プレミアリーグ上位クラブが登場する3回戦は9月中の予定。</p>
+      <p class="round-note tbd">各ラウンドの正確な日程・カードは要確認（公式発表待ち）。</p>
+    </div>
+  </section>
+
+  <!-- ===================== スペイン ===================== -->
+  <section class="group" id="esp">
+    <h2><span class="flag">🇪🇸</span> スペイン</h2>
+
+    <div class="card">
+      <h3>ラ・リーガ<span class="comp-chip eu">DAZN / U-NEXT</span></h3>
+      <p class="broadcast-line">全380試合を<b>DAZN</b>（月額4,200円）と<b>U-NEXTサッカーパック</b>の両方でライブ・見逃し配信。WOWOWは2022/23シーズンで中継終了。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>節</th><th>日程</th><th>主なカード</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>第2節</td><td>8/24(月)〜8/25(火)</td><td class="match tbd">対戦カード確認中</td><td>DAZN／U-NEXT</td></tr>
+            <tr><td>第3節</td><td>8/28(金)〜8/31(月)</td><td class="match">ラシン・サンタンデールvsエルチェ／アラベスvsビジャレアル／レバンテvsベティス／ソシエダvsエスパニョール／セビージャvsA・マドリー／レアル・マドリーvsマラガ／セルタvsビルバオ／バルセロナvsラージョ 他</td><td>DAZN／U-NEXT</td></tr>
+            <tr><td>第4節</td><td>9/6(日)</td><td class="match">アラベスvsオサスナ／ビルバオvsA・マドリー／ベティスvsレアル・マドリー／エスパニョールvsセビージャ／バレンシアvsバルセロナ／ビジャレアルvsデポルティボ 他</td><td>DAZN／U-NEXT</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>コパ・デル・レイ<span class="comp-chip eu">U-NEXT</span></h3>
+      <p class="broadcast-line"><b>U-NEXTサッカーパック</b>で配信。下位ラウンドは秋以降に実施され、ラ・リーガ勢の登場は例年12月以降のため対象期間中の試合は基本的になし。</p>
+    </div>
+  </section>
+
+  <!-- ===================== ドイツ ===================== -->
+  <section class="group" id="ger">
+    <h2><span class="flag">🇩🇪</span> ドイツ</h2>
+
+    <div class="card">
+      <h3>ブンデスリーガ<span class="comp-chip eu">DAZN</span></h3>
+      <p class="broadcast-line"><b>DAZN</b>／<b>DMM×DAZNホーダイ</b>／<b>ABEMA de DAZN</b>の3サービスで全306試合を配信。日本人選手出場試合中心に日本語実況あり。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>節</th><th>日程</th><th>主なカード</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>第1節</td><td>8/28(金)〜8/30(日)</td><td class="match">バイエルン・ミュンヘンvsVfBシュツットガルト（開幕戦・日本時間8/29 3:30）ほか全9試合</td><td>DAZN 他</td></tr>
+            <tr><td>第2節〜第4節</td><td>9月上旬〜中旬</td><td class="match tbd">対戦カード判明次第更新</td><td>DAZN 他</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>DFBポカール<span class="comp-chip eu">GAORA / U-NEXT</span></h3>
+      <p class="broadcast-line"><b>GAORAオンデマンド</b>で全63試合を配信（1回戦は全32試合ライブ配信）。<b>GAORA SPORTS</b>（CS）で注目試合を独占放送。<b>U-NEXT</b>でも注目カードを配信。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>ラウンド</th><th>日程</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>1回戦</td><td>8月21日(金)〜27日(木)</td><td>GAORAオンデマンド／GAORA SPORTS／U-NEXT</td></tr>
+            <tr><td>2回戦</td><td>10月下旬予定（対象期間外）</td><td class="tbd">未定</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== イタリア ===================== -->
+  <section class="group" id="ita">
+    <h2><span class="flag">🇮🇹</span> イタリア</h2>
+
+    <div class="card">
+      <h3>セリエA<span class="comp-chip eu">DAZN独占</span></h3>
+      <p class="broadcast-line"><b>DAZN</b>（DMM×DAZNホーダイ／ABEMA de DAZN含む）が独占配信。地上波・BS/CSでの定期中継なし。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>節</th><th>日程</th><th>主なカード</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>第1節</td><td>8月22日(現地)</td><td class="match tbd">開幕節</td><td>DAZN</td></tr>
+            <tr><td>第2節</td><td>8月29日(土)</td><td class="match">ミランvsヴェネツィア 他</td><td>DAZN</td></tr>
+            <tr><td>第3節</td><td>9月5日(土)〜7日(月)</td><td class="match">ユベントスvsミラン／インテルvsナポリ 他</td><td>DAZN</td></tr>
+            <tr><td>第4節</td><td>9月14日(月)</td><td class="match">ラツィオvsミラン 他</td><td>DAZN</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>コッパ・イタリア<span class="comp-chip eu">DAZN</span></h3>
+      <p class="broadcast-line"><b>DAZN</b>で1回戦から配信。セリエA上位クラブの登場は例年1月以降のため、対象期間中は下位クラブ中心のラウンドとなる見込み。</p>
+    </div>
+  </section>
+
+  <!-- ===================== フランス ===================== -->
+  <section class="group" id="fra">
+    <h2><span class="flag">🇫🇷</span> フランス</h2>
+
+    <div class="card">
+      <h3>リーグ・アン<span class="comp-chip eu">DAZN独占</span></h3>
+      <p class="broadcast-line"><b>DAZN</b>が日本国内独占配信権を保有。U-NEXT・ABEMA・WOWOWでは視聴不可。今季は平日開催なし。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>節</th><th>日程</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>第1節</td><td>8月23日(日)〜24日(月)</td><td>DAZN</td></tr>
+            <tr><td>第2節</td><td>8月29日(土)〜30日(日)</td><td>DAZN</td></tr>
+            <tr><td>第3節</td><td>9月5日(土)〜6日(日)</td><td>DAZN</td></tr>
+            <tr><td>第4節</td><td>9月12日(土)〜13日(日)</td><td>DAZN</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="round-note">個別カード・キックオフ時刻は判明次第、次回更新で追加します。</p>
+    </div>
+
+    <div class="card">
+      <h3>クープ・ド・フランス<span class="comp-chip eu">DAZN</span></h3>
+      <p class="broadcast-line"><b>DAZN</b>／<b>DMM×DAZNホーダイ</b>で配信。対象期間中は地域予選（アマチュアクラブ中心）が進行中で、リーグ・アン勢の登場は例年1月以降。</p>
+    </div>
+  </section>
+
+  <!-- ===================== 欧州カップ戦 ===================== -->
+  <section class="group" id="uefa">
+    <h2><span class="flag">🇪🇺</span> 欧州カップ戦（UEFA）</h2>
+
+    <div class="card">
+      <h3>UEFAチャンピオンズリーグ<span class="comp-chip eu">WOWOW独占</span></h3>
+      <p class="broadcast-line"><b>WOWOW</b>が2025-26〜2030-31シーズンの独占生中継・配信権を保有。DAZN・U-NEXT・Amazonプライムでは視聴不可。地上波の生放送なし。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>ラウンド</th><th>日程</th><th>放送</th></tr></thead>
+          <tbody>
+            <tr><td>リーグフェーズ第1節</td><td>9月8日(火)〜10日(木)</td><td>WOWOW</td></tr>
+            <tr><td>リーグフェーズ第2節</td><td>10月13日(火)〜14日(水)（対象期間外）</td><td>WOWOW</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>UEFAヨーロッパリーグ<span class="comp-chip eu">WOWOW</span></h3>
+      <p class="broadcast-line"><b>WOWOW</b>がリーグフェーズから決勝まで全試合をライブ・アーカイブ配信。開幕は例年CLの翌週（9月下旬）だが、正確な日程は要確認。</p>
+      <p class="round-note tbd">対象期間内の具体的な試合日程は次回更新で反映します。</p>
+    </div>
+
+    <div class="card">
+      <h3>UEFAカンファレンスリーグ<span class="comp-chip eu">WOWOW</span></h3>
+      <p class="broadcast-line"><b>WOWOW</b>が注目試合を放送・配信。リーグフェーズは10月15日〜12月17日の予定で、<b>対象期間（〜9/24）中の試合はなし</b>。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>本ページは公開情報（各リーグ・放送事業者の公式発表、報道）をもとに作成した非公式のまとめです。掲載内容は変更される場合があるため、視聴前に必ず各配信サービスの公式サイトでご確認ください。</p>
+  <p>リポジトリ: <a href="https://github.com/chimoke-hub/football-broadcast-2026-27" target="_blank" rel="noopener">chimoke-hub/football-broadcast-2026-27</a></p>
+</footer>
+
+</body>
+</html>
