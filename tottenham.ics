@@ -1,0 +1,54 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//football-broadcast-2026-27//Tottenham Schedule//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:トッテナム 試合日程 2026-27
+X-WR-TIMEZONE:Asia/Tokyo
+X-WR-CALDESC:トッテナム・ホットスパー 2026-27シーズン全試合（判明分）。放送はプレミアリーグ＝U-NEXT、カラバオカップ＝DAZN。https://chimoke-hub.github.io/football-broadcast-2026-27/tottenham.html
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:pl-md1-2026-08-23@football-broadcast-2026-27
+DTSTAMP:20260824T090000Z
+DTSTART:20260822T163000Z
+DTEND:20260822T183000Z
+SUMMARY:[PL第1節] ブレントフォード vs トッテナム
+DESCRIPTION:プレミアリーグ第1節。日本国内配信: U-NEXT。
+LOCATION:Gtech Community Stadium, London
+END:VEVENT
+BEGIN:VEVENT
+UID:pl-md2-2026-08-30@football-broadcast-2026-27
+DTSTAMP:20260824T090000Z
+DTSTART:20260829T163000Z
+DTEND:20260829T183000Z
+SUMMARY:[PL第2節] トッテナム vs ニューカッスル
+DESCRIPTION:プレミアリーグ第2節。日本国内配信: U-NEXT。
+LOCATION:Tottenham Hotspur Stadium, London
+END:VEVENT
+BEGIN:VEVENT
+UID:carabao-r2-2026-08-27@football-broadcast-2026-27
+DTSTAMP:20260824T090000Z
+DTSTART:20260826T184500Z
+DTEND:20260826T204500Z
+SUMMARY:[カラバオ杯2回戦] トッテナム vs チャールトン・アスレティック
+DESCRIPTION:カラバオカップ(EFLカップ)2回戦。日本国内配信: DAZN。
+LOCATION:Tottenham Hotspur Stadium, London
+END:VEVENT
+BEGIN:VEVENT
+UID:pl-md3-2026-09-05@football-broadcast-2026-27
+DTSTAMP:20260824T090000Z
+DTSTART;VALUE=DATE:20260905
+DTEND;VALUE=DATE:20260907
+SUMMARY:[PL第3節・時刻未定] ノッティンガム・フォレスト vs トッテナム
+DESCRIPTION:プレミアリーグ第3節。正確なキックオフ時刻は未確定のため終日予定として登録。日本国内配信: U-NEXT。確定後、次回更新で正確な時刻に差し替えます。
+END:VEVENT
+BEGIN:VEVENT
+UID:pl-md4-2026-09-12@football-broadcast-2026-27
+DTSTAMP:20260824T090000Z
+DTSTART;VALUE=DATE:20260912
+DTEND;VALUE=DATE:20260914
+SUMMARY:[PL第4節・時刻未定] トッテナム vs エバートン
+DESCRIPTION:プレミアリーグ第4節。正確なキックオフ時刻は未確定のため終日予定として登録。日本国内配信: U-NEXT。確定後、次回更新で正確な時刻に差し替えます。
+END:VEVENT
+END:VCALENDAR

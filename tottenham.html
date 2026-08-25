@@ -152,6 +152,14 @@
     color: var(--text-muted);
     margin-top: 0.6rem;
   }
+  code {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    word-break: break-all;
+  }
 
   footer {
     max-width: 900px;
@@ -183,6 +191,20 @@
   <div class="notice">
     <strong>掲載範囲について：</strong>
     トッテナムが2026-27シーズンに出場する大会（プレミアリーグ・カラバオカップ）を対象にしています。2025-26シーズンをプレミアリーグ17位・国内カップ戦無冠で終えたため、<b>今季の欧州カップ戦（CL/EL/ECL）・FA杯（対象期間中）は該当なし</b>です。曜日・キックオフ時刻は判明分のみ日本時間で記載し、未確定・組み合わせ抽選前のものは「<span class="tbd">未定</span>」としています。
+  </div>
+
+  <div class="card" id="calendar">
+    <h3>📅 カレンダーに登録</h3>
+    <p class="broadcast-line">下記URLをカレンダーアプリで「購読（サブスクライブ）」すると、このページの試合日程が自動でカレンダーに反映されます（毎月更新のたびに自動で最新化）。1回だけ取り込みたい場合はダウンロードしてインポートしてください。</p>
+    <p class="broadcast-line">
+      <b>Apple カレンダー / Outlook：</b>
+      <a href="webcal://chimoke-hub.github.io/football-broadcast-2026-27/tottenham.ics">webcal://chimoke-hub.github.io/football-broadcast-2026-27/tottenham.ics</a>
+    </p>
+    <p class="broadcast-line">
+      <b>Google カレンダー：</b> 左メニュー「他のカレンダー」の＋→「URLで追加」に以下を貼り付け<br>
+      <code>https://chimoke-hub.github.io/football-broadcast-2026-27/tottenham.ics</code>
+    </p>
+    <p class="round-note">キックオフ時刻が未確定の試合は終日予定として登録されます。時刻が確定次第、同じ予定が正しい時刻に自動で更新されます（イベントIDが固定のため、重複登録にはなりません）。</p>
   </div>
 
   <div class="card">
