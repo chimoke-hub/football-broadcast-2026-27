@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>トッテナム 過去シーズンアーカイブ</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --card-bg: #ffffff;
+    --text: #1a1d23;
+    --text-muted: #5b6270;
+    --border: #e2e5ea;
+    --accent: #1d6fd6;
+    --accent-soft: #eaf2fd;
+    --header-bg: #12151c;
+    --header-text: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1115;
+      --card-bg: #171a21;
+      --text: #e7e9ee;
+      --text-muted: #9aa1ae;
+      --border: #2a2e37;
+      --accent: #6ea8f5;
+      --accent-soft: #16233a;
+      --header-bg: #0a0c10;
+      --header-text: #f2f4f8;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1115;
+    --card-bg: #171a21;
+    --text: #e7e9ee;
+    --text-muted: #9aa1ae;
+    --border: #2a2e37;
+    --accent: #6ea8f5;
+    --accent-soft: #16233a;
+    --header-bg: #0a0c10;
+    --header-text: #f2f4f8;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  header.hero { background: var(--header-bg); color: var(--header-text); padding: 2.5rem 1.5rem 2rem; }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  header.hero .back { display: inline-block; font-size: 0.8rem; color: #aab1bd; text-decoration: none; margin-bottom: 0.8rem; }
+  header.hero .back:hover { color: #fff; }
+  header.hero h1 { font-size: 1.5rem; margin: 0 0 0.5rem; }
+  header.hero p { margin: 0.25rem 0; color: #c7ccd6; font-size: 0.92rem; }
+
+  main { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+
+  .notice {
+    background: var(--accent-soft); border: 1px solid var(--border); color: var(--text-muted);
+    border-radius: 10px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.5rem;
+  }
+
+  .season-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .season-card {
+    display: block; background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.1rem 1.3rem; text-decoration: none; color: var(--text);
+  }
+  .season-card:hover { border-color: var(--accent); }
+  .season-card h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+  .season-card p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+
+  footer {
+    max-width: 900px; margin: 0 auto; padding: 1.5rem;
+    color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <a class="back" href="index.html">← 試合分析トップに戻る</a>
+    <h1>過去シーズンアーカイブ</h1>
+    <p>API-Football無料枠で取得できる過去シーズン（2022-23〜2024-25）の全試合分析</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="notice">
+    <strong>このアーカイブについて：</strong>
+    2026-27シーズンの分析とは別に、無料枠で取得できる過去3シーズン分の全試合（公式戦のみ、親善試合は除く）を順次分析しています。シーズンごとのレビュー（転機となった試合・シーズン通しての選手レーティングなど）も各シーズンページから見られます。
+  </div>
+
+  <div class="season-list">
+    <a class="season-card" href="2024-25/index.html">
+      <h3>2024-25シーズン</h3>
+      <p>プレミアリーグ17位・UEFAヨーロッパリーグ優勝（対マンチェスター・ユナイテッド）</p>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p>本ページは公開情報（API-Football）をもとに作成した非公式の分析です。掲載内容には主観的な戦術評価を含みます。</p>
+  <p>リポジトリ: <a href="https://github.com/chimoke-hub/football-broadcast-2026-27" target="_blank" rel="noopener">chimoke-hub/football-broadcast-2026-27</a></p>
+</footer>
+
+</body>
+</html>

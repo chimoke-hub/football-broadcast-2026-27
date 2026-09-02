@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>トッテナム 2024-25シーズン 試合分析一覧</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --card-bg: #ffffff;
+    --text: #1a1d23;
+    --text-muted: #5b6270;
+    --border: #e2e5ea;
+    --accent: #1d6fd6;
+    --accent-soft: #eaf2fd;
+    --header-bg: #12151c;
+    --header-text: #ffffff;
+    --win: #0f766e;
+    --win-bg: #ecfdf5;
+    --draw: #92400e;
+    --draw-bg: #fffbeb;
+    --loss: #b91c1c;
+    --loss-bg: #fef2f2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1115;
+      --card-bg: #171a21;
+      --text: #e7e9ee;
+      --text-muted: #9aa1ae;
+      --border: #2a2e37;
+      --accent: #6ea8f5;
+      --accent-soft: #16233a;
+      --header-bg: #0a0c10;
+      --header-text: #f2f4f8;
+      --win: #5fd6c4;
+      --win-bg: #10302b;
+      --draw: #f2b56b;
+      --draw-bg: #2c2412;
+      --loss: #f38b8b;
+      --loss-bg: #3a1414;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1115;
+    --card-bg: #171a21;
+    --text: #e7e9ee;
+    --text-muted: #9aa1ae;
+    --border: #2a2e37;
+    --accent: #6ea8f5;
+    --accent-soft: #16233a;
+    --header-bg: #0a0c10;
+    --header-text: #f2f4f8;
+    --win: #5fd6c4;
+    --win-bg: #10302b;
+    --draw: #f2b56b;
+    --draw-bg: #2c2412;
+    --loss: #f38b8b;
+    --loss-bg: #3a1414;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  header.hero { background: var(--header-bg); color: var(--header-text); padding: 2.5rem 1.5rem 2rem; }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  header.hero .back { display: inline-block; font-size: 0.8rem; color: #aab1bd; text-decoration: none; margin-bottom: 0.8rem; }
+  header.hero .back:hover { color: #fff; }
+  header.hero h1 { font-size: 1.5rem; margin: 0 0 0.5rem; }
+  header.hero p { margin: 0.25rem 0; color: #c7ccd6; font-size: 0.92rem; }
+
+  main { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+
+  .notice {
+    background: var(--accent-soft); border: 1px solid var(--border); color: var(--text-muted);
+    border-radius: 10px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.5rem;
+  }
+
+  .review-card {
+    display: block; background: var(--accent-soft); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.1rem 1.3rem; text-decoration: none; color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .review-card:hover { border-color: var(--accent); }
+  .review-card h3 { margin: 0 0 0.3rem; font-size: 1.02rem; color: var(--accent); }
+  .review-card p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+
+  .comp-group { margin-bottom: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; margin-top: 1.4rem; }
+  .comp-group:first-of-type { margin-top: 0; }
+
+  .match-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .match-card {
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 0.8rem 1.1rem; text-decoration: none; color: var(--text);
+    font-size: 0.88rem;
+  }
+  .match-card:hover { border-color: var(--accent); }
+  .match-card .date { font-size: 0.76rem; color: var(--text-muted); flex: 0 0 auto; }
+  .match-card .fixture { font-weight: 600; flex: 1; }
+  .result-chip {
+    display: inline-block; font-size: 0.7rem; font-weight: 700;
+    padding: 0.1rem 0.5rem; border-radius: 999px; flex: 0 0 auto;
+  }
+  .result-chip.win { background: var(--win-bg); color: var(--win); }
+  .result-chip.draw { background: var(--draw-bg); color: var(--draw); }
+  .result-chip.loss { background: var(--loss-bg); color: var(--loss); }
+
+  .empty-state {
+    text-align: center; color: var(--text-muted); padding: 3rem 1rem;
+    border: 1px dashed var(--border); border-radius: 12px; font-size: 0.9rem;
+  }
+
+  footer {
+    max-width: 900px; margin: 0 auto; padding: 1.5rem;
+    color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <a class="back" href="../archive.html">← 過去シーズンアーカイブに戻る</a>
+    <h1>トッテナム 2024-25シーズン 試合分析</h1>
+    <p>プレミアリーグ17位・UEFAヨーロッパリーグ優勝。公式戦60試合（親善試合を除く）を順次分析</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="notice">
+    <strong>掲載について：</strong>
+    API-Football無料枠のデータを使い、このシーズンの全公式戦を順次分析しています。全試合が揃い次第、このページの上部にシーズンレビュー（転機となった試合・シーズン通しての選手レーティング等）へのリンクを追加します。
+  </div>
+
+  <div class="match-list" id="matchList">
+    <div class="comp-group">プレミアリーグ</div>
+    <a class="match-card" href="2024-08-19-leicester-tottenham.html">
+      <span class="date">第1節・8/19</span>
+      <span class="fixture">レスター vs トッテナム</span>
+      <span class="result-chip draw">1-1 分</span>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p>本ページは公開情報（API-Football）をもとに作成した非公式の分析です。掲載内容には主観的な戦術評価を含みます。</p>
+  <p>リポジトリ: <a href="https://github.com/chimoke-hub/football-broadcast-2026-27" target="_blank" rel="noopener">chimoke-hub/football-broadcast-2026-27</a></p>
+</footer>
+
+</body>
+</html>
