@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>トッテナム 試合分析一覧 2026-27</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --card-bg: #ffffff;
+    --text: #1a1d23;
+    --text-muted: #5b6270;
+    --border: #e2e5ea;
+    --accent: #1d6fd6;
+    --accent-soft: #eaf2fd;
+    --header-bg: #12151c;
+    --header-text: #ffffff;
+    --win: #0f766e;
+    --win-bg: #ecfdf5;
+    --draw: #92400e;
+    --draw-bg: #fffbeb;
+    --loss: #b91c1c;
+    --loss-bg: #fef2f2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1115;
+      --card-bg: #171a21;
+      --text: #e7e9ee;
+      --text-muted: #9aa1ae;
+      --border: #2a2e37;
+      --accent: #6ea8f5;
+      --accent-soft: #16233a;
+      --header-bg: #0a0c10;
+      --header-text: #f2f4f8;
+      --win: #5fd6c4;
+      --win-bg: #10302b;
+      --draw: #f2b56b;
+      --draw-bg: #2c2412;
+      --loss: #f38b8b;
+      --loss-bg: #3a1414;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1115;
+    --card-bg: #171a21;
+    --text: #e7e9ee;
+    --text-muted: #9aa1ae;
+    --border: #2a2e37;
+    --accent: #6ea8f5;
+    --accent-soft: #16233a;
+    --header-bg: #0a0c10;
+    --header-text: #f2f4f8;
+    --win: #5fd6c4;
+    --win-bg: #10302b;
+    --draw: #f2b56b;
+    --draw-bg: #2c2412;
+    --loss: #f38b8b;
+    --loss-bg: #3a1414;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  header.hero {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 2.5rem 1.5rem 2rem;
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  header.hero .back {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #aab1bd;
+    text-decoration: none;
+    margin-bottom: 0.8rem;
+  }
+  header.hero .back:hover { color: #fff; }
+  header.hero h1 { font-size: 1.5rem; margin: 0 0 0.5rem; }
+  header.hero p { margin: 0.25rem 0; color: #c7ccd6; font-size: 0.92rem; }
+
+  main { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+
+  .notice {
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .match-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .match-card {
+    display: block;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .match-card:hover { border-color: var(--accent); }
+  .match-card .date { font-size: 0.78rem; color: var(--text-muted); }
+  .match-card .fixture { font-weight: 600; margin: 0.2rem 0; }
+  .result-chip {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+  .result-chip.win { background: var(--win-bg); color: var(--win); }
+  .result-chip.draw { background: var(--draw-bg); color: var(--draw); }
+  .result-chip.loss { background: var(--loss-bg); color: var(--loss); }
+
+  .empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 3rem 1rem;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <a class="back" href="../tottenham.html">← トッテナム日程に戻る</a>
+    <h1>📊 トッテナム 試合分析</h1>
+    <p>2026-27シーズン｜各試合終了後にスタッツ・戦術面を振り返る詳細分析</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="notice">
+    <strong>掲載について：</strong>
+    トッテナムの試合終了後、順次このページに分析記事を追加していきます。スタッツはAPI-Footballのデータを基に、戦術面の解説は試合展開を踏まえてまとめています。
+  </div>
+
+  <div class="match-list">
+    <!-- 分析ページが増えるたびに、ここに match-card を追加する（新しい試合を先頭に） -->
+  </div>
+
+  <div class="empty-state">
+    まだ分析記事はありません。試合終了後に追加されます。
+  </div>
+
+</main>
+
+<footer>
+  <p>本ページは公開情報をもとに作成した非公式の分析です。掲載内容には主観的な戦術評価を含みます。</p>
+  <p>リポジトリ: <a href="https://github.com/chimoke-hub/football-broadcast-2026-27" target="_blank" rel="noopener">chimoke-hub/football-broadcast-2026-27</a></p>
+</footer>
+
+</body>
+</html>
